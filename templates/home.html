@@ -1,0 +1,58 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Location Input Form</title>
+    <link rel="stylesheet" href="../static/style.css" />
+  </head>
+  <body>
+    <form action="/" method="POST" enctype="multipart/form-data">
+      <h2>Input Lokasi Saat Ini:</h2>
+      <label for="cur-lat">Current Latitude</label>
+      <input
+        type="number"
+        step="0.000000000000000001"
+        id="cur-lat"
+        name="cur-lat"
+        required
+      />
+
+      <label for="cur-long">| Current Longitude</label>
+      <input
+        type="number"
+        step="0.000000000000000001"
+        id="cur-long"
+        name="cur-long"
+        required
+      />
+      <hr />
+      <h2>Input Lokasi Kendaraan:</h2>
+      <label for="veh-lat">Vehicle Latitude</label>
+      <input
+        type="number"
+        step="0.000000000000000001"
+        id="veh-lat"
+        name="veh-lat"
+        required
+      />
+
+      <label for="veh-long">| Vehicle Longitude</label>
+      <input
+        type="number"
+        step="0.000000000000000001"
+        id="veh-long"
+        name="veh-long"
+        required
+      />
+      <hr />
+      <input type="submit" />
+    </form>
+    <p>Hasil</p>
+    {% if shortest_path %}
+    <h2>Shortest Path:</h2>
+    <p>{% for node in shortest_path %} {{ node }} {% endfor %}</p>
+    {% endif %}
+  </body>
+</html>
